@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="config_sms_force_7bit_encoding">true</bool>
+    <bool name="config_ascii_7bit_support_for_long_message">true</bool>
+</resources>
