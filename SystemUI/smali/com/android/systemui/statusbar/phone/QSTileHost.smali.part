@@ -1,0 +1,366 @@
+.method private createTile(Ljava/lang/String;)Lcom/android/systemui/qs/QSTile;
+    .locals 3
+    .param p1, "tileSpec"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/android/systemui/qs/QSTile",
+            "<*>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 306
+    const-string v0, "wifi"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/WifiTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/WifiTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    .line 327
+    :goto_0
+    return-object v0
+
+    .line 307
+    :cond_0
+    const-string v0, "bt"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/BluetoothTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 308
+    :cond_1
+    const-string v0, "inversion"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/ColorInversionTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/ColorInversionTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 309
+    :cond_2
+    const-string v0, "mobiledata"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/MobileDataTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/MobileDataTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 310
+    :cond_3
+    const-string v0, "airplane"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/AirplaneModeTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/AirplaneModeTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 311
+    :cond_4
+    const-string v0, "rotation"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/RotationLockTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/RotationLockTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 312
+    :cond_5
+    const-string v0, "flashlight"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/FlashlightTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/FlashlightTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 313
+    :cond_6
+    const-string v0, "location"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/LocationTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/LocationTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 314
+    :cond_7
+    const-string v0, "cast"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/CastTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/CastTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 315
+    :cond_8
+    const-string v0, "hotspot"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    new-instance v0, Lcom/android/systemui/qs/tiles/HotspotTile;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/HotspotTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto :goto_0
+
+    .line 317
+    :cond_9
+    const-string v0, "autobrightness"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/AutoBrightnessTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/AutoBrightnessTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 318
+    :cond_a
+    const-string v0, "smarttouch"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/SmartTouchTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/SmartTouchTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 319
+    :cond_b
+    const-string v0, "mute"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/MuteTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/MuteTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 320
+    :cond_c
+
+    goto/16 :goto_flyme_0
+
+    const-string v0, "nfc"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/NfcTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/NfcTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    :goto_flyme_0
+
+    .line 321
+    :cond_d
+    const-string v0, "powersave"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/PowerSaveTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/PowerSaveTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 322
+    :cond_e
+    const-string v0, "vibrate"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/VibrateTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/VibrateTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 323
+    :cond_f
+    const-string v0, "vpn"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/VpnTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/VpnTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 324
+    :cond_10
+    const-string v0, "zenmode"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_11
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/DndModeTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/DndModeTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 325
+    :cond_11
+    const-string v0, "screenshot"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_12
+
+    new-instance v0, Lcom/flyme/systemui/qs/tiles/ScreenshotTile;
+
+    invoke-direct {v0, p0}, Lcom/flyme/systemui/qs/tiles/ScreenshotTile;-><init>(Lcom/android/systemui/qs/QSTile$Host;)V
+
+    goto/16 :goto_0
+
+    .line 327
+    :cond_12
+    const-string v0, "intent("
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_13
+
+    invoke-static {p0, p1}, Lcom/android/systemui/qs/tiles/IntentTile;->create(Lcom/android/systemui/qs/QSTile$Host;Ljava/lang/String;)Lcom/android/systemui/qs/QSTile;
+
+    move-result-object v0
+
+    goto/16 :goto_0
+
+    .line 328
+    :cond_13
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Bad tile spec: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
