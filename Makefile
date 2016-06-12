@@ -7,7 +7,7 @@
 # The default value is base.
 # Support values: base, base_cm, base_mt6592 and other devices in the future.
 #-----------------------------------------------------------------------------
-BASE := a0001
+BASE := base
 
 ##############################################################################
 # The value is used for resource adapter with the aapt tool.
