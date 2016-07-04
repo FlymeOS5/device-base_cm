@@ -202,7 +202,7 @@
     .param p0, "absSeekBar"    # Landroid/widget/AbsSeekBar;
 
     .prologue
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
@@ -223,7 +223,7 @@
     sub-int v0, v3, v4
 
     .local v0, "delta":I
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
@@ -262,7 +262,7 @@
     .prologue
     const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
@@ -278,7 +278,7 @@
 
     if-le v5, v6, :cond_2
 
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
@@ -326,7 +326,7 @@
     return-void
 
     :cond_2
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 
@@ -1054,13 +1054,13 @@
     .param p0, "absSeekBar"    # Landroid/widget/AbsSeekBar;
 
     .prologue
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->getThumb()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0}, Landroid/widget/AbsSeekBar;->flymeGetFieldThumb()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 

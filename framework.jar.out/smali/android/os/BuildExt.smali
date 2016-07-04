@@ -68,6 +68,8 @@
 
 .field public static final IS_PRODUCT:Z
 
+.field public static final IS_S25:Ljava/lang/Boolean;
+
 .field public static final IS_SHOPDEMO:Ljava/lang/Boolean;
 
 .field public static final IS_TD_PLATFORM:Ljava/lang/Boolean;
@@ -992,6 +994,18 @@
     move-result-object v0
 
     sput-object v0, Landroid/os/BuildExt;->IS_U10:Ljava/lang/Boolean;
+
+    const-string v0, "2555"
+
+    invoke-static {v0}, Landroid/os/BuildExt;->checkProductModel(Ljava/lang/String;)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    sput-object v0, Landroid/os/BuildExt;->IS_S25:Ljava/lang/Boolean;
 
     const-string v0, "ro.meizu.product.model"
 

@@ -2703,7 +2703,7 @@
     .restart local v16    # "i":I
     .restart local v25    # "set":[Landroid/content/ComponentName;
     :cond_d
-    if-eqz p3, :cond_13
+    if-eqz p3, :cond_11
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/MzResolverActivity;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -2727,7 +2727,7 @@
     .end local v25    # "set":[Landroid/content/ComponentName;
     :cond_e
     :goto_4
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_10
 
     move-object/from16 v0, p0
 
@@ -2748,45 +2748,13 @@
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     :cond_f
-    const-string v2, "android.intent.action.SEND"
-
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_10
-
-    const-string v2, "android.intent.action.SEND_MULTIPLE"
-
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_11
-
-    :cond_10
-    const/high16 v2, 0x10000000
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    :cond_11
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/MzResolverActivity;->safelyStartActivity(Landroid/content/Intent;)V
 
-    :cond_12
+    :cond_10
     return-void
 
     .restart local v6    # "filter":Landroid/content/IntentFilter;
@@ -2797,7 +2765,7 @@
     .restart local v14    # "data":Landroid/net/Uri;
     .restart local v16    # "i":I
     .restart local v25    # "set":[Landroid/content/ComponentName;
-    :cond_13
+    :cond_11
     :try_start_1
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 

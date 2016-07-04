@@ -216,13 +216,7 @@
     if-nez v4, :cond_0
 
     :cond_5
-    iget-object v4, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v5}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+    invoke-static {p0}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;)V
 
     goto :goto_1
 
@@ -267,7 +261,7 @@
 
     iput-boolean v5, p0, Landroid/app/Activity;->mFlymeStatusBarColorLock:Z
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_9
     iget-boolean v6, p0, Landroid/app/Activity;->mFlymeShowStatusBarColor:Z
@@ -290,13 +284,7 @@
 
     invoke-static {p0, v4, p2, p3}, Landroid/app/Activity$FlymeInjector;->setDrawsSystemBarBackgrounds(Landroid/app/Activity;ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    iget-object v4, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v5}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+    invoke-static {p0}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;)V
 
     goto/16 :goto_1
 
@@ -311,19 +299,13 @@
 
     if-eqz v6, :cond_b
 
-    iget-boolean v6, p0, Landroid/app/Activity;->mFlymeShowStatusBarColor:Z
+    iget-boolean v5, p0, Landroid/app/Activity;->mFlymeShowStatusBarColor:Z
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     invoke-static {p0, v4, p2, p3}, Landroid/app/Activity$FlymeInjector;->setDrawsSystemBarBackgrounds(Landroid/app/Activity;ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    iget-object v4, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v5}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+    invoke-static {p0}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;)V
 
     goto/16 :goto_1
 
@@ -459,13 +441,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object v4, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v5}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+    invoke-static {p0}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;)V
 
     goto/16 :goto_1
 
@@ -485,13 +461,7 @@
     if-eqz v4, :cond_0
 
     :cond_12
-    iget-object v4, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v4
-
-    invoke-static {p0, v4, v5}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+    invoke-static {p0}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;)V
 
     goto/16 :goto_1
 .end method
@@ -582,102 +552,6 @@
     .end local v2    # "packageName":Ljava/lang/String;
     :cond_1
     return v1
-.end method
-
-.method static drawStatusBarBackground(Landroid/app/Activity;Landroid/graphics/Canvas;)V
-    .locals 5
-    .param p0, "activity"    # Landroid/app/Activity;
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-
-    .prologue
-    const/4 v4, 0x0
-
-    const/4 v2, 0x0
-
-    iget-boolean v3, p0, Landroid/app/Activity;->mFlymeKeepAppStatusBar:Z
-
-    if-nez v3, :cond_0
-
-    iget-boolean v3, p0, Landroid/app/Activity;->mFlymeStatusBarColorLock:Z
-
-    if-nez v3, :cond_0
-
-    iget-boolean v3, p0, Landroid/app/Activity;->mFlymeStatusBarTintEnabled:Z
-
-    if-eqz v3, :cond_0
-
-    iget-boolean v3, p0, Landroid/app/Activity;->mFlymeShowStatusBarColor:Z
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v3}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/View;->getX()F
-
-    move-result v3
-
-    cmpl-float v3, v3, v4
-
-    if-nez v3, :cond_1
-
-    iget-object v3, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    invoke-virtual {v3}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/view/View;->getY()F
-
-    move-result v3
-
-    cmpl-float v3, v3, v4
-
-    if-nez v3, :cond_1
-
-    const/4 v1, 0x1
-
-    .local v1, "full":Z
-    :goto_0
-    iget-boolean v3, p0, Landroid/app/Activity;->mIsFlymeStatusBar:Z
-
-    if-eqz v3, :cond_0
-
-    iget-boolean v3, p0, Landroid/app/Activity;->mIsFlymeFloating:Z
-
-    if-eqz v3, :cond_0
-
-    if-eqz v1, :cond_0
-
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
-
-    iget v3, p0, Landroid/app/Activity;->mFlymeStatusBarColor:I
-
-    invoke-direct {v0, v3}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
-
-    .local v0, "colorDrawable":Landroid/graphics/drawable/ColorDrawable;
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->getWidth()I
-
-    move-result v3
-
-    sget v4, Landroid/app/Activity$FlymeInjector;->mTopShift:I
-
-    invoke-virtual {v0, v2, v2, v3, v4}, Landroid/graphics/drawable/ColorDrawable;->setBounds(IIII)V
-
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/ColorDrawable;->draw(Landroid/graphics/Canvas;)V
-
-    .end local v0    # "colorDrawable":Landroid/graphics/drawable/ColorDrawable;
-    .end local v1    # "full":Z
-    :cond_0
-    return-void
-
-    :cond_1
-    move v1, v2
-
-    goto :goto_0
 .end method
 
 .method private static getAutomaticColor(Landroid/app/Activity;Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Bitmap;I)I
@@ -1819,43 +1693,25 @@
     return-void
 .end method
 
-.method private static onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+.method static onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
     .locals 4
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "view"    # Landroid/view/View;
     .param p2, "delay"    # I
 
     .prologue
-    if-nez p2, :cond_0
-
     new-instance v0, Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;
 
     iget-object v1, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
 
-    const/4 v2, 0x1
-
-    invoke-direct {v0, p0, v1, v2}, Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;-><init>(Landroid/app/Activity;Landroid/view/Window;Z)V
+    invoke-direct {v0, p0, v1, p2}, Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;-><init>(Landroid/app/Activity;Landroid/view/Window;I)V
 
     .local v0, "drawDecorViewInner":Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;
-    :goto_0
     int-to-long v2, p2
 
     invoke-virtual {p1, v0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
-
-    .end local v0    # "drawDecorViewInner":Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;
-    :cond_0
-    new-instance v0, Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;
-
-    iget-object v1, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, p0, v1, v2}, Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;-><init>(Landroid/app/Activity;Landroid/view/Window;Z)V
-
-    .restart local v0    # "drawDecorViewInner":Landroid/app/Activity$FlymeInjector$FlymeDrawDecorViewInner;
-    goto :goto_0
 .end method
 
 .method static onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;Z)V
@@ -1868,6 +1724,8 @@
     const/4 v2, 0x1
 
     const/4 v3, 0x0
+
+    iput-boolean v3, p0, Landroid/app/Activity;->mFlymeDecoViewDrawFlag:Z
 
     invoke-static {p0, p1}, Landroid/app/Activity$FlymeInjector;->getAutomaticColor(Landroid/app/Activity;Landroid/view/View;)Ljava/lang/Integer;
 
@@ -2876,4 +2734,61 @@
     invoke-virtual {p0, v2, v7}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
+.end method
+
+.method static drawStatusBarBackground(Landroid/app/Activity;)V
+    .locals 2
+    .param p0, "activity"    # Landroid/app/Activity;
+
+    .prologue
+    iget-boolean v0, p0, Landroid/app/Activity;->mFlymeStatusBarColorLock:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/app/Activity;->mFlymeDecoViewDrawFirst:Z
+
+    iget-boolean v0, p0, Landroid/app/Activity;->mFlymeDecoViewDrawFlag:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v0, v1}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;Z)V
+
+    iget-object v0, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/View;->postInvalidate()V
+
+    :cond_0
+    return-void
+.end method
+
+.method private static onDrawDecorViewInner(Landroid/app/Activity;)V
+    .locals 2
+    .param p0, "activity"    # Landroid/app/Activity;
+
+    .prologue
+    iget-object v0, p0, Landroid/app/Activity;->mFlymeWindow:Landroid/view/Window;
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {p0, v0, v1}, Landroid/app/Activity$FlymeInjector;->onDrawDecorViewInner(Landroid/app/Activity;Landroid/view/View;I)V
+
+    return-void
 .end method

@@ -129,7 +129,7 @@
 
     move-result-object v1
 
-    const v3, 0x102002c
+    const v3, #android:id@home#t
 
     const-string v6, "NFC_SHARE"
 
@@ -183,45 +183,6 @@
 
     :cond_0
     return-void
-.end method
-
-.method static flymeGetDisplayMetricsHeight(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;I)I
-    .locals 4
-    .param p0, "decorView"    # Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
-    .param p1, "height"    # I
-
-    .prologue
-    if-lez p1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
-
-    float-to-double v0, v0
-
-    const-wide/high16 v2, 0x4004000000000000L    # 2.5
-
-    add-double/2addr v0, v2
-
-    double-to-int v0, v0
-
-    add-int/2addr v0, p1
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method static flymeObtainDragEvent(ILandroid/view/DragEvent;)Landroid/view/DragEvent;
@@ -343,4 +304,84 @@
     .end local v1    # "listener":Landroid/view/ActionMode$BackPressedListener;
     :cond_2
     return v2
+.end method
+
+.method static flymeGetDisplayMetricsHeight(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Lcom/android/internal/policy/impl/PhoneWindow$ColorViewState;Lcom/android/internal/policy/impl/PhoneWindow;I)I
+    .locals 4
+    .param p0, "decorView"    # Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+    .param p1, "state"    # Lcom/android/internal/policy/impl/PhoneWindow$ColorViewState;
+    .param p2, "phoneWindow"    # Lcom/android/internal/policy/impl/PhoneWindow;
+    .param p3, "height"    # I
+
+    .prologue
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->flymeGetFieldStatusColorViewState()Lcom/android/internal/policy/impl/PhoneWindow$ColorViewState;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_1
+
+    if-nez p3, :cond_0
+
+    invoke-virtual {p2}, Lcom/android/internal/policy/impl/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const/high16 v1, -0x80000000
+
+    and-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    iget p3, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFlymeStableInsetTop:I
+
+    :cond_0
+    if-lez p3, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
+
+    float-to-double v0, v0
+
+    const-wide/high16 v2, 0x4004000000000000L    # 2.5
+
+    add-double/2addr v0, v2
+
+    double-to-int v0, v0
+
+    add-int/2addr v0, p3
+
+    add-int/lit8 p3, v0, -0x1
+
+    :cond_1
+    :goto_0
+    return p3
+
+    :cond_2
+    const/4 p3, 0x0
+
+    goto :goto_0
+.end method
+
+.method static setFlymeStableInsetTop(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/WindowInsets;)V
+    .locals 1
+    .param p0, "decorView"    # Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+    .param p1, "insets"    # Landroid/view/WindowInsets;
+
+    .prologue
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getStableInsetTop()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFlymeStableInsetTop:I
+
+    return-void
 .end method
